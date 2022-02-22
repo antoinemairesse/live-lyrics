@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.12.
 
+You can test the current running version on this url : [Live Lyrics](https://live-lyrics-2c715.web.app/) (You need a premium Spotify account for it to work)
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
