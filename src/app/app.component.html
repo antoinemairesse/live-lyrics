@@ -1,0 +1,3 @@
+<app-lyrics *ngIf="Ly.getLoginStatus()"></app-lyrics>
+<app-artist-carousel *ngIf="Ly.getLoginStatus()"></app-artist-carousel>
+<app-login *ngIf="!Ly.getLoginStatus()"></app-login>

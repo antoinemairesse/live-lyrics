@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+@mixin text-carousel-animation{
+  @keyframes text-carousel-animation {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+}
+
+.paginator{
+  text-align: center;
+}
+.artist-sheet {
+  margin: 0 auto;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, .15);
+  display: block;
+}
+
+
+.artist-art {
+  img {
+    width: 80%;
+    height: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+
+    &:after {
+      content: "";
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+}
+
+.info{
+  font-family: 'Roboto', sans-serif;
+  text-transform: uppercase;
+  margin: 0 auto;
+  width: 80%;
+  #artist-name{
+    font-size: 2.5em;
+  }
+  .artist-genre{
+    font-size: 1.5em;
+  }
+}
+
+.controllers{
+  width: 80%;
+  height: 6em;
+  color: #dcdcdc;
+  display: flex;
+  justify-content: space-around;
+  margin: 0 4em 0 auto;
+  mat-icon{
+    cursor: pointer;
+    font-size: 5em;
+  }
+  #next{
+    margin-right: 0.35em;
+  }
+}
+
+.spotify-button{
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff !important;
+  text-transform: uppercase;
+  font-size: 1em;
+  text-decoration: none;
+  background: #53ADBC;
+  padding: 20px;
+  border-radius: 5px;
+  display: block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  &:hover{
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+  }
+  @media only screen and (max-width: 470px) {
+    font-size: 2em;
+  }
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+#artist-name-carousel {
+  width: 100%;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  span{
+    font-size: 2.5em;
+    display: inline-block;
+    padding-left: 100%;
+    animation: text-carousel-animation 20s linear infinite;
+  }
+  @include text-carousel-animation;
+}

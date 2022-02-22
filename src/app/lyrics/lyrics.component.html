@@ -1,0 +1,77 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap-grid.min.css"/>
+  <title>Live Lyrics</title>
+</head>
+<body>
+<br><br><br>
+
+<div class="container" *ngIf="!Ly.getErrorSpotify()">
+  <div class="row">
+    <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12">
+      <div id="audio-player" style="width: 80%">
+       <img id="album-art" src="{{Ly.getAlbumArt()}}" alt="album-art"/>
+        <br><br>
+        <p class="song-name-carousel" *ngIf="Ly.getSongName().length >= 20">
+        <span>
+          {{Ly.getSongName()}} &nbsp; &nbsp;
+          {{Ly.getSongName()}} &nbsp; &nbsp;
+          {{Ly.getSongName()}} &nbsp; &nbsp;
+          {{Ly.getSongName()}} &nbsp; &nbsp;
+        </span>
+        </p>
+        <p id="song-name" *ngIf="Ly.getSongName().length < 20">{{Ly.getSongName()}}</p>
+
+        <p id="artist-name-carousel" *ngIf="Ly.getArtistName().length >= 20">
+        <span>
+          {{Ly.getArtistName()}} &nbsp; &nbsp;
+          {{Ly.getArtistName()}} &nbsp; &nbsp;
+          {{Ly.getArtistName()}} &nbsp; &nbsp;
+          {{Ly.getArtistName()}} &nbsp; &nbsp;
+        </span>
+        </p>
+        <p id="artist-name" *ngIf="Ly.getArtistName().length < 20">{{Ly.getArtistName()}}</p>
+        <br>
+        <div id="volume">
+        <mat-icon aria-hidden="false" aria-label="skip to previous track">volume_up</mat-icon>
+        <mat-slider (valueChange)="adjustVolume()"
+                    thumbLabel
+                    tickInterval="1000"
+                    [(ngModel)]="sliderValue"
+                    step="1"
+                    min="0"
+                    max="100"
+                    aria-label="units"></mat-slider>
+        </div>
+        <br><br>
+        <mat-progress-bar mode="determinate" value="{{songProgress}}"></mat-progress-bar>
+        <div id="duration">
+          <span>0:00</span>
+          <span>{{Ly.getSongDuractionMin()}}:{{Ly.getSongDuractionSec()}}</span>
+        </div>
+        <br>
+        <div id="controllers">
+          <mat-icon (click)="Ly.skipPrevious()" aria-hidden="false" aria-label="skip to previous track">skip_previous
+          </mat-icon>
+          <mat-icon (click)="Ly.PauseResume()" *ngIf="!playing" aria-hidden="false" aria-label="play / pause track">play_circle_outline
+          </mat-icon>
+          <mat-icon (click)="Ly.PauseResume()" *ngIf="playing" aria-hidden="false" aria-label="play / pause track">pause_circle_outline
+          </mat-icon>
+          <mat-icon (click)="Ly.skipNext()" aria-hidden="false" aria-label="skip to next track">skip_next</mat-icon>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="!Ly.getErrorLyrics()" id="lyrics" class="col-xl-6 col-lg-4 col-md-12 col-sm-12">
+      <p>{{Ly.getLyrics()}}</p>
+    </div>
+    <div *ngIf="Ly.getErrorLyrics()" class="col-xl-6 col-lg-4 col-md-12 col-sm-12">
+      <p>Les paroles ne sont pas disponible pour ce son.</p>
+    </div>
+  </div>
+  <br><br><br><br><br><br>
+</div>
+<div *ngIf="Ly.getErrorSpotify()">
+  <p id="info">Vous n'écoutez pas de musique.</p>
+</div>
+</body>

@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row">
+  <div class="col-xl-3 col-lg-2 col-md-1 col-sm-0"></div>
+  <div class="col-xl-6 col-lg-8 col-md-12 col-sm-12">
+    <div class="artist-sheet" *ngIf="filled">
+      <br>
+      <div class="paginator">
+        {{i + 1}}/{{related[0].length}}
+      </div>
+      <br>
+      <div class="artist-art">
+        <img src="{{related[0][i].photo}}" alt="">
+      </div>
+
+      <div class="info"><br>
+        <p id="artist-name" *ngIf="related[0][i].name.length < 15">{{related[0][i].name}}</p>
+        <p id="artist-name-carousel" *ngIf="related[0][i].name.length >= 15">
+        <span>
+          {{related[0][i].name}} &nbsp; &nbsp;
+          {{related[0][i].name}} &nbsp; &nbsp;
+          {{related[0][i].name}} &nbsp; &nbsp;
+          {{related[0][i].name}} &nbsp; &nbsp;
+        </span>
+        </p>
+        <p class="artist-genre" *ngIf="related[0][i].genre !== undefined">{{related[0][i].genre}}</p>
+        <p class="artist-genre" *ngIf="related[0][i].genre === undefined">Aucune information</p>
+        <br>
+      </div>
+
+      <br><br>
+      <div class="controllers">
+        <mat-icon (click)="previous()" id="previous" aria-hidden="false">skip_previous</mat-icon>
+        <mat-icon (click)="next()" id="next" aria-hidden="false">skip_next</mat-icon>
+      </div>
+
+      <button class="spotify-button"><a href="{{related[0][i].url}}" target="_blank">Spotify</a></button>
+      <br><br>
+    </div>
+  </div>
+  <div class="col-xl-3 col-lg-2 col-md-1 col-sm-0"></div>
+  </div>
+</div>
+<br><br><br><br><br><br><br><br>

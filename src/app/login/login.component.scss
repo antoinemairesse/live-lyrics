@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+
+#main {
+  padding-top: 10vh;
+}
+
+#title {
+  text-align: center;
+  font-size: 4em;
+  color: white;
+  font-family: 'KoHo', sans-serif;
+}
+
+.login-button{
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff !important;
+  text-transform: uppercase;
+  font-size: 2.5em;
+  text-decoration: none;
+  background: #53ADBC;
+  padding: 20px;
+  border-radius: 5px;
+  display: block;
+  border: none;
+  transition: all 0.4s ease 0s;
+  cursor: pointer;
+  &:hover{
+    background: #434343;
+    letter-spacing: 1px;
+    -webkit-box-shadow: 0 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0 5px 40px -10px rgba(0,0,0,0.57);
+    box-shadow: 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.4s ease 0s;
+  }
+  @media only screen and (max-width: 470px) {
+    font-size: 2em;
+  }
+}
+
+#warning{
+  text-align: center;
+  color: rgba(191, 18, 18, 0.89);
+}
+
+#info{
+  text-align: center;
+}

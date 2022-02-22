@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css2?family=KoHo:wght@200&display=swap');
+
+@mixin text-carousel-animation{
+  @keyframes text-carousel-animation {
+    0% {
+      transform: translate(0, 0);
+    }
+    100% {
+      transform: translate(-100%, 0);
+    }
+  }
+}
+
+#info{
+  text-align: center;
+  font-size: 4em;
+  color: white;
+  font-family: 'KoHo', sans-serif;
+  @media only screen and (max-width: 550px) {
+    font-size: 3em;
+  }
+  @media only screen and (max-width: 400px) {
+    font-size: 2em;
+  }
+}
+
+#lyrics {
+  p {
+    white-space: pre-wrap;
+    overflow-y: scroll;
+    height: 75vh;
+  }
+
+  margin-bottom: 2em;
+  @media only screen and (max-width: 992px) {
+    margin-top: 3em;
+  }
+}
+
+#audio-player {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#artist-name {
+  width: 100%;
+  color: #dcdcdc;
+  font-size: 2em;
+  margin: 0 auto;
+}
+
+#artist-name-carousel {
+  width: 100%;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  span{
+    color: #dcdcdc;
+    font-size: 2em;
+    display: inline-block;
+    padding-left: 100%;
+    animation: text-carousel-animation 20s linear infinite;
+  }
+  @include text-carousel-animation;
+}
+
+#song-name {
+  width: 100%;
+  color: white;
+  font-size: 2em;
+  margin: 0 auto;
+}
+
+#duration {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5em;
+}
+
+#volume {
+  mat-icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+
+  mat-slider {
+    display: inline-block;
+    vertical-align: middle;
+  }
+}
+
+#album-art {
+  object-fit: cover;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+}
+
+.song-name-carousel {
+  width: 100%;
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+  span {
+    color: white;
+    font-size: 2em;
+    display: inline-block;
+    padding-left: 100%;
+    animation: text-carousel-animation 20s linear infinite;
+    @include text-carousel-animation;
+  }
+}
+
+#controllers {
+  width: 80%;
+  height: 6em;
+  color: #dcdcdc;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 4em 0 auto;
+  mat-icon{
+    cursor: pointer;
+    font-size: 5em;
+  }
+}
